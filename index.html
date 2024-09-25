@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <script type="text/javascript" src="Procesar.js"></script>
+    </head>
+    
+        <body>
+            <h1>Asistencia Curso</h1>
+            <h2>Datos Estudiante</h2>
+            <form id="adicionarEstudiante">
+                <label for="documentodeidentidad">Documento de Identidad</label>
+                <input type="text" id="documentodeidentidad">
+                <br>
+                <br>
+
+                <label for="nombrescompletosdelestudiante">Nombres Completos</label>
+                <input type="text" id="nombrescompletosdelestudiante">
+                <br>
+                <br>
+                <input type="submit" onclick="GuardarDatosEstudiantes()" value="Enviar al backend">
+            </form>
+
+            <h2>Datos Curso</h2>
+            <form id="adicionarCurso">
+                <label for="nombredelcurso">Nombre: </label>
+                <input type="text" id="nombredelcurso">
+                <br>
+                <br>
+                <input type="submit" onclick="Guardar()" value="Enviar al backend">
+            </form>
+
+            <h2>Sesion</h2>
+            <form id="adicionarEstudiante">
+                <label for="fecha">Fecha: </label>
+                <input type="text" id="fecha">
+                <br>
+                <br>
+
+                <label for="horainicio">Hora de Incio: </label>
+                <input type="text" id="horainicio">
+                <br>
+                <br>
+
+                <label for="horafinal">Hora Final: </label>
+                <input type="text" id="horafinal">
+                <br>
+                <br>
+                <input type="submit" onclick="Guardar()" value="Enviar al backend">
+            </form>
+
+            <h2>Asistencia</h2>
+            <form id="adicionarEstudiante">
+                <label for="Estudiantes_documentodeidentidaddelestudiante">Documento del estudiante: </label>
+                <input type="text" id="Estudiantes_documentodeidentidaddelestudiante">
+                <br>
+                <br>
+
+                <label for="Sesiones_numerodesecuencia">Numero de Sesion: </label>
+                <input type="text" id="Sesiones_numerodesecuencia">
+                <br>
+                <br>
+
+                <label for="multaasistencia">Estado de Multa: </label>
+                <input type="text" id="multaasistencia">
+                <br>
+                <br>
+                <input type="submit" onclick="Guardar()" value="Enviar al backend">
+            </form>
+        </body>
+    
+</html>
