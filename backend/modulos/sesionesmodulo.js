@@ -8,7 +8,7 @@ class SesionesModulo{
 
     consultar(req,res){
         try{
-            db.query('SELECT  * FROM estudiantes',
+            db.query('SELECT  * FROM sesiones',
             [],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -21,11 +21,11 @@ class SesionesModulo{
     }
 
     actualizar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id} = req.params;
         try{
-            const {nombrescompletosdelestudiante} = req.body;
-            db.query('UPDATE cursos.estudiantes SET nombrescompletosdelestudiante=? WHERE documentodeidentidaddelestudiante=?;',
-            [nombrescompletosdelestudiante,documentodeidentidaddelestudiante],(err,rows) => {
+            const {Sesion_Cursos_codigodelcurso, Sesion_fecha, Sesion_horainicio, Sesion_horafinal} = req.body;
+            db.query('UPDATE sesiones SET Cursos_codigodelcurso=?, fecha=?, horainicio=?, horafinal=? WHERE numerodesecuencia=?;',
+            [Sesion_Cursos_codigodelcurso, Sesion_fecha, Sesion_horainicio, Sesion_horafinal, id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
@@ -44,11 +44,11 @@ class SesionesModulo{
             console.log ("la información que llega es " + myJSON );
 
 
-            const {Cursos_codigodelcurso, fecha, horainicio, horafinal} = req.body;
+            const {fecha, horainicio, horafinal, Cursos_codigodelcurso} = req.body;
             //console.log ("el dni que llega es de " + nombredelcurso);
 
-            db.query('INSERT INTO sesiones (Cursos_codigodelcurso, fecha, horainicio, horafinal) VALUES (?, ?, ?, ?);',
-            [Cursos_codigodelcurso, fecha, horainicio, horafinal],(err,rows) => {
+            db.query('INSERT INTO sesiones (fecha, horainicio, horafinal, Cursos_codigodelcurso) VALUES (?, ?, ?, ?);',
+            [fecha, horainicio, horafinal, Cursos_codigodelcurso],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }else{
@@ -65,7 +65,7 @@ class SesionesModulo{
         const {id} = req.params;
         try{
 
-            db.query('SELECT  * FROM estudiantes WHERE documentodeidentidaddelestudiante=?',
+            db.query('SELECT  * FROM sesiones WHERE numerodesecuencia=?',
             [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -79,11 +79,11 @@ class SesionesModulo{
     }
 
     borrar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id} = req.params;
         try{
             req.body;
-            db.query('DELETE FROM cursos.estudiantes WHERE documentodeidentidaddelestudiante=?;',
-            [documentodeidentidaddelestudiante],(err,rows) => {
+            db.query('DELETE FROM sesiones WHERE numerodesecuencia=?;',
+            [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }

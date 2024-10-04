@@ -8,7 +8,7 @@ class CursoModulo{
 
     consultar(req,res){
         try{
-            db.query('SELECT  * FROM estudiantes',
+            db.query('SELECT  * FROM cursos',
             [],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -21,11 +21,11 @@ class CursoModulo{
     }
 
     actualizar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id} = req.params;
         try{
-            const {nombrescompletosdelestudiante} = req.body;
-            db.query('UPDATE cursos.estudiantes SET nombrescompletosdelestudiante=? WHERE documentodeidentidaddelestudiante=?;',
-            [nombrescompletosdelestudiante,documentodeidentidaddelestudiante],(err,rows) => {
+            const {nombreCurso} = req.body;
+            db.query('UPDATE cursos SET nombredelcurso=? WHERE codigodelcurso=?;',
+            [nombreCurso,id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
@@ -65,7 +65,7 @@ class CursoModulo{
         const {id} = req.params;
         try{
 
-            db.query('SELECT  * FROM estudiantes WHERE documentodeidentidaddelestudiante=?',
+            db.query('SELECT  * FROM cursos WHERE codigodelcurso=?',
             [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -79,11 +79,11 @@ class CursoModulo{
     }
 
     borrar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id_asistencia} = req.params;
         try{
             req.body;
-            db.query('DELETE FROM cursos.estudiantes WHERE documentodeidentidaddelestudiante=?;',
-            [documentodeidentidaddelestudiante],(err,rows) => {
+            db.query('DELETE FROM cursos WHERE codigodelcurso=?;',
+            [id_asistencia],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }

@@ -1,14 +1,14 @@
 const db= require("../database/conexion.js");
 
 
-class CursoModulo{
+class AsistenciaModulo{
     construct(){
 
     }
 
     consultar(req,res){
         try{
-            db.query('SELECT  * FROM estudiantes',
+            db.query('SELECT  * FROM asistencia',
             [],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -21,11 +21,11 @@ class CursoModulo{
     }
 
     actualizar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id} = req.params;
         try{
-            const {nombrescompletosdelestudiante} = req.body;
-            db.query('UPDATE cursos.estudiantes SET nombrescompletosdelestudiante=? WHERE documentodeidentidaddelestudiante=?;',
-            [nombrescompletosdelestudiante,documentodeidentidaddelestudiante],(err,rows) => {
+            const {Asistencia_ID_Estudiante, Asistencia_ID_Sesion, Asistencia_Multa} = req.body;
+            db.query('UPDATE asistencia SET Estudiantes_documentodeidentidaddelestudiante=?, Sesiones_numerodesecuencia=?, multaasistencia=? WHERE numerodesecuencia=?;',
+            [Asistencia_ID_Estudiante, Asistencia_ID_Sesion, Asistencia_Multa, id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
@@ -65,7 +65,7 @@ class CursoModulo{
         const {id} = req.params;
         try{
 
-            db.query('SELECT  * FROM estudiantes WHERE documentodeidentidaddelestudiante=?',
+            db.query('SELECT * FROM asistencia WHERE numerodesecuencia=?',
             [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
@@ -79,11 +79,11 @@ class CursoModulo{
     }
 
     borrar(req,res){
-        const {documentodeidentidaddelestudiante} = req.params;
+        const {id} = req.params;
         try{
             req.body;
-            db.query('DELETE FROM cursos.estudiantes WHERE documentodeidentidaddelestudiante=?;',
-            [documentodeidentidaddelestudiante],(err,rows) => {
+            db.query('DELETE FROM asistencia WHERE numerodesecuencia=?;',
+            [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
@@ -96,4 +96,4 @@ class CursoModulo{
    }
 }
 
-module.exports = new CursoModulo();
+module.exports = new AsistenciaModulo();

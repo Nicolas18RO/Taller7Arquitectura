@@ -6,6 +6,7 @@
     
         <body>
             <h1>Asistencia Curso</h1>
+            <h1>--------Ingresar Datos--------</h1>
             <h2>Datos Estudiante</h2>
             <form id="adicionarEstudiante">
                 <label for="documentodeidentidad">Documento de Identidad</label>
@@ -69,8 +70,195 @@
                 <input type="text" id="multaasistencia">
                 <br>
                 <br>
-                <input type="submit" onclick="GuardarDatosAsistencia()" value="Enviar al backend">
+                <input type="submit" onclick="GuardarDatosAsistencia()" value="Guardar Datos Asistencia">
             </form>
+
+            <h1>--------Consular Datos--------</h1>
+            <h2>Consultar Estudiantes</h2>
+            <form id="ConsultarEstudiante">
+                <label for="idCE">Identificador del estudiante a buscar:</label>
+                <input type="text" id="idCE" placeHolder="">
+                <br>
+                <p id="rtaCE">Resultado:</p>
+                <input type="submit" onclick="ConsultarEstudiante()" value="Aceptar">
+            </form>
+
+            <h2>Buscar Todos los estudiantes</h2>
+            <form id="listarEstudiantes">
+                <p id="rta">Resultado:</p>
+                <input type="submit" onclick="Buscar_Estudiantes()" value="Aceptar">
+            </form>
+
+            <h2>Consultar Cursos</h2>
+            <form id="ConsultarCurso">
+                <label for="idCC">Identificador del curso a buscar:</label>
+                <input type="text" id="idCC" placeHolder="">
+                <br>
+                <p id="rtaC">Resultado:</p>
+                <input type="submit" onclick="ConsultarCursos()" value="Aceptar">
+            </form>
+
+            <h2>Buscar Todos los Cursos</h2>
+            <form id="listarCursos">
+                <p id="rtaCC">Resultado:</p>
+                <input type="submit" onclick="Buscar_Cursos()" value="Aceptar">
+            </form>
+
+            <h2>Consultar Sesiones</h2>
+            <form id="ConsultarSesion">
+                <label for="idCS">Identificador de la sesion a buscar:</label>
+                <input type="text" id="idCS" placeHolder="">
+                <br>
+                <p id="rtaS">Resultado:</p>
+                <input type="submit" onclick="ConsultarSesiones()" value="Aceptar">
+            </form>
+
+            <h2>Buscar Todas las sesiones</h2>
+            <form id="listarSesiones">
+                <p id="rtaCS">Resultado:</p>
+                <input type="submit" onclick="Buscar_Sesiones()" value="Aceptar">
+            </form>
+
+            <h2>Consultar Asistencias</h2>
+            <form id="ConsultarAsistencia">
+                <label for="idCA">Identificador de la asistencia a buscar:</label>
+                <input type="text" id="idCA" placeHolder="">
+                <br>
+                <p id="rtaAs">Resultado:</p>
+                <input type="submit" onclick="ConsultarAsitencia()" value="Aceptar">
+            </form>
+
+            <h2>Buscar Todas las asistencias</h2>
+            <form id="listarSesiones">
+                <p id="rtaCA">Resultado:</p>
+                <input type="submit" onclick="Buscar_Asistencias()" value="Aceptar">
+            </form>
+
+            <h1>--------Modificar Datos--------</h1>
+            <h2>Modificar Estudiantes</h2>
+            <form id="ModificarEstudiantes">
+                <label for="Modi_Id">ID del Estudiante:</label>
+                <input type="text" id="Modi_Id" placeHolder="">
+                <br>
+
+                <label for="Modi_Nombre">Nuevo Nombre</label>
+                <input type="text" id="Modi_Nombre" placeHolder="">
+                <br>
+
+                <p id="rtaMD">Resultado:</p>
+                <input type="submit" onclick="actualizar()" value="Aceptar">
+            </form>
+
+            <h2>Modificar Cursos</h2>
+            <form id="ModificarCursos">
+                <label for="PUT_IdC">ID del Curso:</label>
+                <input type="text" id="PUT_IdC" placeHolder="">
+                <br>
+
+                <label for="PUT_Nombre">Nuevo Nombre</label>
+                <input type="text" id="PUT_Nombre" placeHolder="">
+                <br>
+
+                <p id="rtaMC">Resultado:</p>
+                <input type="submit" onclick="actualizar_curso()" value="Aceptar">
+            </form>
+
+            <h2>Modificar Sesiones</h2>
+            <form id="ModificarSesiones">
+                <label for="PUT_IdS">ID de la Sesion:</label>
+                <input type="text" id="PUT_IdS" placeHolder="">
+                <br>
+
+                <label for="PUT_fecha">Fecha: </label>
+                <input type="text" id="PUT_fecha" placeholder="">
+                <br>
+                <br>
+
+                <label for="PUT_horainicio">Hora de Incio: </label>
+                <input type="text" id="PUT_horainicio" placeholder="">
+                <br>
+                <br>
+
+                <label for="PUT_horafinal">Hora Final: </label>
+                <input type="text" id="PUT_horafinal" placeholder="">
+                <br>
+                <br>
+
+                <label for="PUT_Cursos_codigodelcurso">Codigo Curso: </label>
+                <input type="text" id="PUT_Cursos_codigodelcurso" placeholder="">
+                <br>
+                <br>
+
+                <p id="rtaMS">Resultado:</p>
+                <input type="submit" onclick="actualizar_sesiones()" value="Aceptar">
+            </form>
+
+            <h2>Modificar Asistencia</h2>
+            <form id="ModificarAsistencia">
+                <label for="PUT_IdA">ID de la Asistencia:</label>
+                <input type="text" id="PUT_IdA" placeHolder="">
+                <br>
+
+                <label for="PUT_ID_Estudiante">ID Estudiante: </label>
+                <input type="text" id="PUT_ID_Estudiante" placeholder="">
+                <br>
+                <br>
+
+                <label for="PUT_ID_Sesiones">ID Sesiones: </label>
+                <input type="text" id="PUT_ID_Sesiones" placeholder="">
+                <br>
+                <br>
+
+                <label for="PUT_Multa">Multa: </label>
+                <input type="text" id="PUT_Multa" placeholder="">
+                <br>
+                <br>
+
+                <p id="rtaMA">Resultado:</p>
+                <input type="submit" onclick="actualizar_asistencia()" value="Aceptar">
+            </form>
+
+            <h1>--------Eliminar Datos--------</h1>
+            <h2>Eliminar Estudiantes</h2>
+            <form id="EliminarEstudiante">
+                <label for="DEL_Id">ID del Estudiante:</label>
+                <input type="text" id="DEL_Id" placeHolder="">
+                <br>
+
+                <p id="rtaDE">Resultado:</p>
+                <input type="submit" onclick="eliminar_estudiante()" value="Aceptar">
+            </form>
+
+            <h2>Eliminar Cursos</h2>
+            <form id="EliminarCursos">
+                <label for="DEL_IdC">ID del Curso:</label>
+                <input type="text" id="DEL_IdC" placeHolder="">
+                <br>
+
+                <p id="rtaDC">Resultado:</p>
+                <input type="submit" onclick="eliminar_cursos()" value="Aceptar">
+            </form>
+
+            <h2>Eliminar Sesiones</h2>
+            <form id="EliminarSesion">
+                <label for="DEL_IdS">ID de la sesion:</label>
+                <input type="text" id="DEL_IdS" placeHolder="">
+                <br>
+
+                <p id="rtaDS">Resultado:</p>
+                <input type="submit" onclick="eliminar_sesiones()" value="Aceptar">
+            </form>
+
+            <h2>Eliminar Asistencias</h2>
+            <form id="EliminarAsistencia">
+                <label for="DEL_IdA">ID de la Asistencia:</label>
+                <input type="text" id="DEL_IdA" placeHolder="">
+                <br>
+
+                <p id="rtaDA">Resultado:</p>
+                <input type="submit" onclick="eliminar_asistencia()" value="Aceptar">
+            </form>
+
         </body>
     
 </html>
