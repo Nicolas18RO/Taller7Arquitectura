@@ -17,7 +17,7 @@
                 <input type="text" id="nombrescompletosdelestudiante">
                 <br>
                 <br>
-                <input type="submit" onclick="GuardarDatosEstudiantes()" value="Enviar al backend">
+                <input type="submit" onclick="GuardarDatosEstudiantes()" value="Guardar Datos Estudiante">
             </form>
 
             <h2>Datos Curso</h2>
@@ -26,11 +26,11 @@
                 <input type="text" id="nombredelcurso">
                 <br>
                 <br>
-                <input type="submit" onclick="GuardarDatosCurso()" value="Enviar al backend">
+                <input type="submit" onclick="GuardarDatosCurso()" value="Guardar Datos Curso">
             </form>
 
             <h2>Sesion</h2>
-            <form id="adicionarEstudiante">
+            <form id="adicionarSesion">
                 <label for="fecha">Fecha: </label>
                 <input type="text" id="fecha">
                 <br>
@@ -45,11 +45,26 @@
                 <input type="text" id="horafinal">
                 <br>
                 <br>
-                <input type="submit" onclick="GuardarDatosSesion()" value="Enviar al backend">
+
+                <label for="Cursos_codigodelcurso">Codigo Curso: </label>
+                <input type="text" id="Cursos_codigodelcurso">
+                <br>
+                <br>
+                <input type="submit" onclick="GuardarDatosSesion()  " value="Guardar Datos Sesion">
             </form>
 
             <h2>Asistencia</h2>
             <form id="adicionarEstudiante">
+                <label for="Estudiantes_documentodeidentidaddelestudiante">Id Estudiante: </label>
+                <input type="text" id="Estudiantes_documentodeidentidaddelestudiante">
+                <br>
+                <br> 
+
+                <label for="Sesiones_numerodesecuencia">Id Sesion: </label>
+                <input type="text" id="Sesiones_numerodesecuencia">
+                <br>
+                <br>
+                
                 <label for="multaasistencia">Estado de Multa: </label>
                 <input type="text" id="multaasistencia">
                 <br>

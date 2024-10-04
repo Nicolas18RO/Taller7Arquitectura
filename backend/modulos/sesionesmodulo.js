@@ -1,7 +1,7 @@
 const db= require("../database/conexion.js");
 
 
-class EstudiantesModulo{
+class SesionesModulo{
     construct(){
 
     }
@@ -44,11 +44,11 @@ class EstudiantesModulo{
             console.log ("la información que llega es " + myJSON );
 
 
-            const {documentodeidentidaddelestudiante, nombrescompletosdelestudiante} = req.body;
-            //console.log ("el dni que llega es de " + dni);
+            const {Cursos_codigodelcurso, fecha, horainicio, horafinal} = req.body;
+            //console.log ("el dni que llega es de " + nombredelcurso);
 
-            db.query('INSERT INTO estudiantes (documentodeidentidaddelestudiante, nombrescompletosdelestudiante) VALUES (?, ?);',
-            [documentodeidentidaddelestudiante,nombrescompletosdelestudiante],(err,rows) => {
+            db.query('INSERT INTO sesiones (Cursos_codigodelcurso, fecha, horainicio, horafinal) VALUES (?, ?, ?, ?);',
+            [Cursos_codigodelcurso, fecha, horainicio, horafinal],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }else{
@@ -96,4 +96,4 @@ class EstudiantesModulo{
    }
 }
 
-module.exports = new EstudiantesModulo();
+module.exports = new SesionesModulo();

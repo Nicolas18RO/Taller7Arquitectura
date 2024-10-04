@@ -5,7 +5,7 @@ function GuardarDatosEstudiantes(){
     event.preventDefault();
 
     let raw = JSON.stringify({
-        "documentodeidentidad": document.getElementById("documentodeidentidad").value,
+        "documentodeidentidaddelestudiante": document.getElementById("documentodeidentidad").value,
         "nombrescompletosdelestudiante": document.getElementById("nombrescompletosdelestudiante").value
 
     });
@@ -17,7 +17,7 @@ function GuardarDatosEstudiantes(){
         redirect: "follow"
     };
     
-    fetch("http://localhost:6500/estudiantes/", requestOptions)
+    fetch("http://localhost:8888/.netlify/functions/estudiantes", requestOptions)
         .then((response)=>response.text())
         .then((result)=>console.log(result))
         .catch((error)=>console.error(error))
@@ -41,32 +41,7 @@ function GuardarDatosCurso(){
         redirect: "follow"
     };
     
-    fetch("http://localhost:6500/estudiantes/", requestOptions)
-        .then((response)=>response.text())
-        .then((result)=>console.log(result))
-        .catch((error)=>console.error(error))
-}
-
-function GuardarDatosEstudiantes(){
-
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    event.preventDefault();
-
-    let raw = JSON.stringify({
-        "documentodeidentidad": document.getElementById("documentodeidentidad").value,
-        "nombrescompletosdelestudiante": document.getElementById("nombrescompletosdelestudiante").value
-
-    });
-
-    let requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-    };
-    
-    fetch("http://localhost:6500/estudiantes/", requestOptions)
+    fetch("http://localhost:8888/.netlify/functions/cursos", requestOptions)
         .then((response)=>response.text())
         .then((result)=>console.log(result))
         .catch((error)=>console.error(error))
@@ -81,7 +56,8 @@ function GuardarDatosSesion(){
     let raw = JSON.stringify({
         "fecha": document.getElementById("fecha").value,
         "horainicio": document.getElementById("horainicio").value,
-        "horafinal": document.getElementById("horafinal").value
+        "horafinal": document.getElementById("horafinal").value,
+        "Cursos_codigodelcurso": document.getElementById("Cursos_codigodelcurso").value
 
     });
 
@@ -92,7 +68,7 @@ function GuardarDatosSesion(){
         redirect: "follow"
     };
     
-    fetch("http://localhost:6500/estudiantes/", requestOptions)
+    fetch("http://localhost:8888/.netlify/functions/sesiones", requestOptions)
         .then((response)=>response.text())
         .then((result)=>console.log(result))
         .catch((error)=>console.error(error))
@@ -106,6 +82,8 @@ function GuardarDatosAsistencia(){
 
     let raw = JSON.stringify({
         "multaasistencia": document.getElementById("multaasistencia").value,
+        "Estudiantes_documentodeidentidaddelestudiante": document.getElementById("Estudiantes_documentodeidentidaddelestudiante").value,
+        "Sesiones_numerodesecuencia": document.getElementById("Sesiones_numerodesecuencia").value
 
     });
 
@@ -116,7 +94,7 @@ function GuardarDatosAsistencia(){
         redirect: "follow"
     };
     
-    fetch("http://localhost:6500/estudiantes/", requestOptions)
+    fetch("http://localhost:8888/.netlify/functions/asistencia", requestOptions)
         .then((response)=>response.text())
         .then((result)=>console.log(result))
         .catch((error)=>console.error(error))
