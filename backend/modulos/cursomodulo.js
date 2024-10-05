@@ -79,11 +79,11 @@ class CursoModulo{
     }
 
     borrar(req,res){
-        const {id_asistencia} = req.params;
+        const {id} = req.params;
         try{
             req.body;
             db.query('DELETE FROM cursos WHERE codigodelcurso=?;',
-            [id_asistencia],(err,rows) => {
+            [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
